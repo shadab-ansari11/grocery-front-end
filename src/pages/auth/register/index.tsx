@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Box,
   Card,
@@ -10,23 +10,23 @@ import {
   Link,
   Divider,
   Grid,
-} from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
-import { useRegister } from './hooks/useRegister';
-import AppRoutes from '../../../navigation/appRoutes';
-import useForm from './hooks/useForm';
+} from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { useRegister } from "./hooks/useRegister";
+import AppRoutes from "../../../navigation/appRoutes";
+import useForm from "./hooks/useForm";
 
 const initialValues = {
-  name: '',
-  email: '',
-  phone: '',
-  address: '',
-  city: '',
-  state: '',
-  pincode: '',
-  password: '',
-  confirmPassword: '',
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
+  city: "",
+  state: "",
+  pincode: "",
+  password: "",
+  confirmPassword: "",
 };
 
 export default function Register() {
@@ -36,7 +36,7 @@ export default function Register() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     setLoading(true);
     try {
       const res = await tryRegister(values);
@@ -49,45 +49,46 @@ export default function Register() {
         setLoading(false);
       }
     } catch (error) {
-      console.log('error-->', error);
+      console.log("error-->", error);
       setLoading(false);
     }
   };
 
   const formik = useForm(onSubmit, initialValues);
-  const { handleSubmit, values, errors, touched, handleChange, handleBlur } = formik;
+  const { handleSubmit, values, errors, touched, handleChange, handleBlur } =
+    formik;
 
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        position: 'relative',
-        overflow: 'hidden',
+        minHeight: "100vh",
+        display: "flex",
+        background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       {/* Decorative circles */}
       <Box
         sx={{
-          position: 'absolute',
-          width: '300px',
-          height: '300px',
-          borderRadius: '50%',
-          background: 'rgba(255, 255, 255, 0.1)',
-          top: '-100px',
-          right: '-100px',
+          position: "absolute",
+          width: "300px",
+          height: "300px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.1)",
+          top: "-100px",
+          right: "-100px",
         }}
       />
       <Box
         sx={{
-          position: 'absolute',
-          width: '200px',
-          height: '200px',
-          borderRadius: '50%',
-          background: 'rgba(255, 255, 255, 0.1)',
-          bottom: '-50px',
-          left: '-50px',
+          position: "absolute",
+          width: "200px",
+          height: "200px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.1)",
+          bottom: "-50px",
+          left: "-50px",
         }}
       />
 
@@ -95,13 +96,13 @@ export default function Register() {
       <Box
         sx={{
           flex: 1,
-          display: { xs: 'none', md: 'flex' },
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: { xs: "none", md: "flex" },
+          alignItems: "center",
+          justifyContent: "center",
           padding: 4,
         }}
       >
-        <Box sx={{ textAlign: 'center', color: 'white' }}>
+        <Box sx={{ textAlign: "center", color: "white" }}>
           <Typography variant="h2" fontWeight={700} mb={2}>
             Join Us Today!
           </Typography>
@@ -113,10 +114,10 @@ export default function Register() {
             src="https://img.icons8.com/clouds/400/add-shopping-cart.png"
             alt="Shopping"
             sx={{
-              width: '300px',
-              height: '300px',
+              width: "300px",
+              height: "300px",
               mt: 4,
-              filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',
+              filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.2))",
             }}
           />
         </Box>
@@ -126,21 +127,21 @@ export default function Register() {
       <Box
         sx={{
           flex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           padding: 4,
         }}
       >
         <Card
           sx={{
-            width: '100%',
-            maxWidth: '550px',
-            padding: '48px 40px',
-            borderRadius: '24px',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-            background: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(10px)',
+            width: "100%",
+            maxWidth: "550px",
+            padding: "48px 40px",
+            borderRadius: "24px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+            background: "rgba(255, 255, 255, 0.95)",
+            backdropFilter: "blur(10px)",
           }}
         >
           <Typography
@@ -148,7 +149,7 @@ export default function Register() {
             fontWeight={700}
             mb={1}
             sx={{
-              color: '#10b981',
+              color: "#10b981",
             }}
           >
             Sign Up
@@ -161,7 +162,12 @@ export default function Register() {
             {/* Name and Email in one row */}
             <Grid container spacing={2} mb={3}>
               <Grid item xs={12} sm={6}>
-                <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+                <Typography
+                  variant="body2"
+                  fontWeight={600}
+                  mb={1}
+                  color="text.primary"
+                >
                   Full Name*
                 </Typography>
                 <TextField
@@ -174,21 +180,26 @@ export default function Register() {
                   error={touched.name && Boolean(errors.name)}
                   helperText={touched.name && errors.name}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      backgroundColor: '#f8f9fa',
-                      '&:hover': {
-                        backgroundColor: '#fff',
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "#f8f9fa",
+                      "&:hover": {
+                        backgroundColor: "#fff",
                       },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#10b981',
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#10b981",
                       },
                     },
                   }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+                <Typography
+                  variant="body2"
+                  fontWeight={600}
+                  mb={1}
+                  color="text.primary"
+                >
                   Email Address*
                 </Typography>
                 <TextField
@@ -201,14 +212,14 @@ export default function Register() {
                   error={touched.email && Boolean(errors.email)}
                   helperText={touched.email && errors.email}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      backgroundColor: '#f8f9fa',
-                      '&:hover': {
-                        backgroundColor: '#fff',
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "#f8f9fa",
+                      "&:hover": {
+                        backgroundColor: "#fff",
                       },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#10b981',
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#10b981",
                       },
                     },
                   }}
@@ -218,7 +229,12 @@ export default function Register() {
 
             {/* Phone Number */}
             <Box mb={3}>
-              <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+              <Typography
+                variant="body2"
+                fontWeight={600}
+                mb={1}
+                color="text.primary"
+              >
                 Phone Number*
               </Typography>
               <TextField
@@ -231,14 +247,14 @@ export default function Register() {
                 error={touched.phone && Boolean(errors.phone)}
                 helperText={touched.phone && errors.phone}
                 sx={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: '12px',
-                    backgroundColor: '#f8f9fa',
-                    '&:hover': {
-                      backgroundColor: '#fff',
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    backgroundColor: "#f8f9fa",
+                    "&:hover": {
+                      backgroundColor: "#fff",
                     },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#10b981',
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "#10b981",
                     },
                   },
                 }}
@@ -247,7 +263,12 @@ export default function Register() {
 
             {/* Address */}
             <Box mb={3}>
-              <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+              <Typography
+                variant="body2"
+                fontWeight={600}
+                mb={1}
+                color="text.primary"
+              >
                 Address*
               </Typography>
               <TextField
@@ -262,14 +283,14 @@ export default function Register() {
                 multiline
                 rows={2}
                 sx={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: '12px',
-                    backgroundColor: '#f8f9fa',
-                    '&:hover': {
-                      backgroundColor: '#fff',
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    backgroundColor: "#f8f9fa",
+                    "&:hover": {
+                      backgroundColor: "#fff",
                     },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#10b981',
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "#10b981",
                     },
                   },
                 }}
@@ -279,7 +300,12 @@ export default function Register() {
             {/* City, State, Pincode in one row */}
             <Grid container spacing={2} mb={3}>
               <Grid item xs={12} sm={4}>
-                <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+                <Typography
+                  variant="body2"
+                  fontWeight={600}
+                  mb={1}
+                  color="text.primary"
+                >
                   City*
                 </Typography>
                 <TextField
@@ -292,21 +318,26 @@ export default function Register() {
                   error={touched.city && Boolean(errors.city)}
                   helperText={touched.city && errors.city}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      backgroundColor: '#f8f9fa',
-                      '&:hover': {
-                        backgroundColor: '#fff',
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "#f8f9fa",
+                      "&:hover": {
+                        backgroundColor: "#fff",
                       },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#10b981',
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#10b981",
                       },
                     },
                   }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+                <Typography
+                  variant="body2"
+                  fontWeight={600}
+                  mb={1}
+                  color="text.primary"
+                >
                   State*
                 </Typography>
                 <TextField
@@ -319,21 +350,26 @@ export default function Register() {
                   error={touched.state && Boolean(errors.state)}
                   helperText={touched.state && errors.state}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      backgroundColor: '#f8f9fa',
-                      '&:hover': {
-                        backgroundColor: '#fff',
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "#f8f9fa",
+                      "&:hover": {
+                        backgroundColor: "#fff",
                       },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#10b981',
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#10b981",
                       },
                     },
                   }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+                <Typography
+                  variant="body2"
+                  fontWeight={600}
+                  mb={1}
+                  color="text.primary"
+                >
                   Pincode*
                 </Typography>
                 <TextField
@@ -346,14 +382,14 @@ export default function Register() {
                   error={touched.pincode && Boolean(errors.pincode)}
                   helperText={touched.pincode && errors.pincode}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      backgroundColor: '#f8f9fa',
-                      '&:hover': {
-                        backgroundColor: '#fff',
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "#f8f9fa",
+                      "&:hover": {
+                        backgroundColor: "#fff",
                       },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#10b981',
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#10b981",
                       },
                     },
                   }}
@@ -363,13 +399,18 @@ export default function Register() {
 
             {/* Password */}
             <Box mb={3}>
-              <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+              <Typography
+                variant="body2"
+                fontWeight={600}
+                mb={1}
+                color="text.primary"
+              >
                 Password*
               </Typography>
               <TextField
                 fullWidth
                 name="password"
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 placeholder="Create a password"
                 value={values.password}
                 onChange={handleChange}
@@ -379,21 +420,24 @@ export default function Register() {
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                      <IconButton
+                        onClick={() => setShowPassword(!showPassword)}
+                        edge="end"
+                      >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   ),
                 }}
                 sx={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: '12px',
-                    backgroundColor: '#f8f9fa',
-                    '&:hover': {
-                      backgroundColor: '#fff',
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    backgroundColor: "#f8f9fa",
+                    "&:hover": {
+                      backgroundColor: "#fff",
                     },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#10b981',
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "#10b981",
                     },
                   },
                 }}
@@ -402,37 +446,53 @@ export default function Register() {
 
             {/* Confirm Password */}
             <Box mb={3}>
-              <Typography variant="body2" fontWeight={600} mb={1} color="text.primary">
+              <Typography
+                variant="body2"
+                fontWeight={600}
+                mb={1}
+                color="text.primary"
+              >
                 Confirm Password*
               </Typography>
               <TextField
                 fullWidth
                 name="confirmPassword"
-                type={showConfirmPassword ? 'text' : 'password'}
+                type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm your password"
                 value={values.confirmPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.confirmPassword && Boolean(errors.confirmPassword)}
+                error={
+                  touched.confirmPassword && Boolean(errors.confirmPassword)
+                }
                 helperText={touched.confirmPassword && errors.confirmPassword}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton onClick={() => setShowConfirmPassword(!showConfirmPassword)} edge="end">
-                        {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                      <IconButton
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
+                        edge="end"
+                      >
+                        {showConfirmPassword ? (
+                          <VisibilityOff />
+                        ) : (
+                          <Visibility />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   ),
                 }}
                 sx={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: '12px',
-                    backgroundColor: '#f8f9fa',
-                    '&:hover': {
-                      backgroundColor: '#fff',
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    backgroundColor: "#f8f9fa",
+                    "&:hover": {
+                      backgroundColor: "#fff",
                     },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#10b981',
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "#10b981",
                     },
                   },
                 }}
@@ -446,21 +506,21 @@ export default function Register() {
               variant="contained"
               disabled={loading}
               sx={{
-                padding: '14px',
-                borderRadius: '12px',
-                fontSize: '16px',
+                padding: "14px",
+                borderRadius: "12px",
+                fontSize: "16px",
                 fontWeight: 700,
-                textTransform: 'none',
-                backgroundColor: '#10b981',
-                boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
-                '&:hover': {
-                  backgroundColor: '#059669',
-                  boxShadow: '0 12px 28px rgba(16, 185, 129, 0.5)',
+                textTransform: "none",
+                backgroundColor: "#10b981",
+                boxShadow: "0 8px 20px rgba(16, 185, 129, 0.4)",
+                "&:hover": {
+                  backgroundColor: "#059669",
+                  boxShadow: "0 12px 28px rgba(16, 185, 129, 0.5)",
                 },
                 mb: 3,
               }}
             >
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? "Creating Account..." : "Create Account"}
             </Button>
 
             {/* Divider */}
@@ -473,17 +533,17 @@ export default function Register() {
             {/* Login Link */}
             <Box textAlign="center">
               <Typography variant="body2" color="text.secondary">
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <Link
-                  onClick={() => navigate('/login')}
+                  onClick={() => navigate("/login")}
                   sx={{
-                    color: '#10b981',
+                    color: "#10b981",
                     fontWeight: 700,
-                    cursor: 'pointer',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: '#059669',
-                      textDecoration: 'underline',
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: "#059669",
+                      textDecoration: "underline",
                     },
                   }}
                 >

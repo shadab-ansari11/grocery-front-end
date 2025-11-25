@@ -21,7 +21,18 @@ const validationSchema = Yup.object({
     .nullable(),
 });
 
-const useProfileForm = (initialValues, onSubmit) => {
+interface ProfileFormValues {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  pincode: string;
+  avatar: string;
+}
+
+const useProfileForm = (initialValues: Partial<ProfileFormValues>, onSubmit: (values: ProfileFormValues) => void) => {
   return useFormik({
     initialValues: {
       name: initialValues?.name || "",

@@ -1,14 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
-import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 // import { updateProfile as updateProfileAPI } from '../../../services/auth.service';
 // import { setUserCredential } from '../../../redux/authSlice';
 
+interface UpdateProfileResponse {
+  success: boolean;
+  user?: any;
+  message?: string;
+}
+
 const useUpdateProfile = () => {
-  const dispatch = useDispatch();
 
   const mutation = useMutation({
-    mutationFn: async (profileData) => {
+    mutationFn: async (profileData: any): Promise<UpdateProfileResponse> => {
       // TODO: Replace with actual API call when backend is ready
       // const response = await updateProfileAPI(profileData);
       // return response;
@@ -20,7 +24,7 @@ const useUpdateProfile = () => {
         }, 1000);
       });
     },
-    onSuccess: (response, variables) => {
+    onSuccess: (response: UpdateProfileResponse, variables: any) => {
       if (response.success) {
         // TODO: Update Redux store when API is ready
         // dispatch(setUserCredential({
@@ -40,7 +44,7 @@ const useUpdateProfile = () => {
         return null;
       }
     },
-    onError: (err) => {
+    onError: (err: any) => {
       console.error("Profile update error:", err);
       toast.error(
         err?.response?.data?.message ||
@@ -49,7 +53,7 @@ const useUpdateProfile = () => {
     },
   });
 
-  const updateProfile = async (values) => {
+  const updateProfile = async (values: any) => {
     return mutation.mutateAsync(values);
   };
 

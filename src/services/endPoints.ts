@@ -8,7 +8,7 @@ const endPoints = {
 
   // Product endpoints
   getAllProducts: "/products",
-  getProductById: (id) => `/products/${id}`,
+  getProductById: (id: string | number) => `/products/${id}`,
 
   // Cart endpoints
   getCart: "/cart",
@@ -17,8 +17,8 @@ const endPoints = {
 
   // Order endpoints
   createOrder: "/orders",
-  getUserOrders: (userId) => `/orders/user/${userId}`,
-  getOrderById: (id) => `/orders/${id}`,
+  getUserOrders: (userId: string | number) => `/orders/user/${userId}`,
+  getOrderById: (id: string | number) => `/orders/${id}`,
 };
 
 export { VITE_APP_BASE_URL, endPoints };
